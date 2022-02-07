@@ -2,9 +2,6 @@
 
 Python driver and widget for CNI Lasers PSU-AOM-DL laser controller
 
-To run the widget, run the CNI_laser_app.py
-The driver is CNI_Lasers_PSU_AOM_DL.py
-
 # Requirements
 
 Windows (This may work on other OS if you can find the FTDI drivers)  
@@ -15,7 +12,10 @@ pyvisa-py
 PyQt6  
 
 # Usage
-The functionality of the app is self explanitory.
+
+To run the widget, run the CNI_laser_app.py. The usage is self explanitory.  
+
+The driver is CNI_Lasers_PSU_AOM_DL.py  
 
 Example code:
 
