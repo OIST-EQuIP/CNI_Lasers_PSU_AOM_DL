@@ -14,10 +14,10 @@ pyvisa
 pyvisa-py
 PyQt6
 
-# Funtionallity
+# Usage
 The functionality of the app is self explanitory.
 
-An example code for using the driver is
+Example code:
 
         import pyvisa as visa
         from CNI_Lasers_PSU_AOM_D import PSU_AOM_DL
