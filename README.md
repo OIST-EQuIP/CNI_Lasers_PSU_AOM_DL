@@ -7,12 +7,12 @@ The driver is CNI_Lasers_PSU_AOM_DL.py
 
 # Requirements
 
-Windows (This may work on other OS if you can find the FTDI drivers)
-FTDI CDM drivers (run CDM21216_setup.exe or https://ftdichip.com/drivers/ VCP and D2xx (2.12.28))
-Python 3 (tested using Anaconda 4.11.0 with Python 3.8.12)
-pyvisa
-pyvisa-py
-PyQt6
+Windows (This may work on other OS if you can find the FTDI drivers)  
+FTDI CDM drivers (run CDM21216_setup.exe or https://ftdichip.com/drivers/ VCP and D2xx (2.12.28))  
+Python 3 (tested using Anaconda 4.11.0 with Python 3.8.12)  
+pyvisa  
+pyvisa-py  
+PyQt6  
 
 # Usage
 The functionality of the app is self explanitory.
