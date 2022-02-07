@@ -1,6 +1,6 @@
 # CNI_Lasers_PSU_AOM_DL
 
-Python driver and widget for CNI Lasers PSU-AOM-DL laser controller
+Python driver and widget for CNI Lasers PSU-AOM-DL laser controller.
 
 # Requirements
 
@@ -9,7 +9,7 @@ FTDI CDM drivers (run CDM21216_setup.exe or https://ftdichip.com/drivers/ VCP an
 Python 3 (tested using Anaconda 4.11.0 with Python 3.8.12)  
 pyvisa  
 pyvisa-py  
-PyQt6  
+PyQt6 (Only for the widget)  
 
 # Usage
 
@@ -22,7 +22,7 @@ Example code:
         import pyvisa as visa
         from CNI_Lasers_PSU_AOM_D import PSU_AOM_DL
 
-        rm = visa.ResourceManager('@py')
+        rm = visa.ResourceManager('@py') 
         port = rm.list_resources()[0] # Choose the index that matched the COM port
         laser = PSU_AOM_DL(rm, port)
         
