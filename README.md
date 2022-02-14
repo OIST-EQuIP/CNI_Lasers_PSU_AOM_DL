@@ -20,7 +20,12 @@ PyQt6
 
 To run the widget, run the CNI_laser_app.py. The usage is self explanitory.  
 
-The driver is CNI_Lasers_PSU_AOM_DL.py  
+The driver is CNI_Lasers_PSU_AOM_DL.py
+
+Attributes are:  
+_repetition_frequency (int, Hz)  
+_current  (int, mA)  
+_external_trigger (Boolean)  
 
 Example code:
 
