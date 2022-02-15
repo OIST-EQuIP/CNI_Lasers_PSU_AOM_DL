@@ -59,6 +59,7 @@ class PSU_AOM_DL:
         while time.time()-self._last_command < 0.15:
             time.sleep(0.01)
         self.port.write_raw(command)
+        self._last_command = time.time()
 
 
 if __name__ == '__main__':
