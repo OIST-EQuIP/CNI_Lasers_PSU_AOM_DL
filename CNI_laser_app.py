@@ -1,4 +1,4 @@
-from drivers.CNI_Lasers_PSU_AOM_DL import PSU_AOM_DL as lc
+from CNI_Lasers_PSU_AOM_DL import PSU_AOM_DL as lc
 
 import sys
 import pyvisa as visa
