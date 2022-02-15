@@ -8,6 +8,8 @@ class PSU_AOM_DL:
         self._current = current
         self._external_trigger = trig_external
 
+        self._last_command = time.time()
+
     def __del__(self):
         self.port.close()
 
@@ -53,9 +55,10 @@ class PSU_AOM_DL:
     # convert to Hex and send through pyvisa commands
     ################
     def write(self, command):
+        # The laser controller needs 0.15 seconds between commands
+        while time.time()-self._last_command < 0.15:
+            time.sleep(0.01)
         self.port.write_raw(command)
-        # The laser controller needs about 0.15 seconds between commands
-        time.sleep(0.15)
 
 
 if __name__ == '__main__':
