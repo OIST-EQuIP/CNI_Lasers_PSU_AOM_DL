@@ -6,7 +6,7 @@ import pyvisa as visa
 from PyQt6 import QtWidgets as qtw
 from PyQt6 import uic
 
-UI_laser, baseClass = uic.loadUiType('UI/CNI_laser_widget.ui')
+UI_laser, baseClass = uic.loadUiType('CNI_laser_widget.ui')
 
 
 class LaserController(baseClass, UI_laser):
