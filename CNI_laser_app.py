@@ -52,7 +52,7 @@ class LaserController(baseClass, UI_laser):
             print('No resource available')
 
     def disconnect(self):
-        self.laser_controller.__del__()
+        self.laser_controller.close()
         self.connect_button.setEnabled(True)
         self.disconnect_button.setEnabled(False)
         self.refresh_button.setEnabled(True)
@@ -67,17 +67,17 @@ class LaserController(baseClass, UI_laser):
         self.com_port_box.addItems(ports)
 
     def set_current(self):
-        curr_lim = 10400
+        curr_lim = 10401 # this stuff should be in the driver
         curr = self.current_input.text()
-        if curr.isnumeric() and 0 <= int(curr) < curr_lim:
+        if curr.isnumeric() and -1 < int(curr) < curr_lim:
             self.laser_controller.current = int(curr)
         else:
             print("Invalid user entry. Enter an integer between 0 and {}".format(curr_lim))
 
     def set_repetition_frequency(self):
-        freq_lim = 20000
+        freq_lim = 20001 # this stuff should be in the driver
         freq = self.repetition_freq_input.text()
-        if freq.isnumeric() and 0 <= int(freq) < freq_lim:
+        if freq.isnumeric() and 0 < int(freq) < freq_lim:
             self.laser_controller.repetition_frequency = int(freq)
         else:
             print("Invalid user entry. Enter an integer between 1 and {}".format(freq_lim))
@@ -85,10 +85,10 @@ class LaserController(baseClass, UI_laser):
     def set_trigger(self):
         if self.trigger_box.currentText() == "Internal":
             external = False
-            self.set_frequency_button.setEnabled(True) # allow frequency button
+            # self.set_frequency_button.setEnabled(True) # allow frequency button
         else:
             external = True
-            self.set_frequency_button.setEnabled(False)
+            # self.set_frequency_button.setEnabled(False)
         self.laser_controller.external_trigger = external
 
     def set_all(self):
