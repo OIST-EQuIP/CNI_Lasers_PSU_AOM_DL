@@ -20,16 +20,15 @@ class PSU_AOM_DL:
 
     @current.setter
     def current(self, curr):
+        # make sure curr is an integer
         self._current = curr
         prefix = b'\x55\xaa\x05\x00'
         bit1 = curr >> 8
         bit2 = curr - (bit1 << 8)
         sum = (bit1 + bit2 + 0x05)%256
         hex_command = prefix + bytes([bit1]) + bytes([bit2]) + bytes([sum])
-        if curr.isnumeric() and -1 < int(curr) <= 10400:
-            self._write(hex_command)
-        else:
-            raise Exception('Invalid repetition frequency. Must be between integer between 1 and 10 400(mA).')
+        self._write(hex_command)
+
 
     @property
     def repetition_frequency(self):
@@ -37,6 +36,7 @@ class PSU_AOM_DL:
 
     @repetition_frequency.setter
     def repetition_frequency(self, freq):
+        # make sure freq is an integer
         self._repetition_frequency = freq
         prefix = b'\x55\xaa\x06\x00'
         bit1 = freq >> 16
@@ -44,11 +44,8 @@ class PSU_AOM_DL:
         bit3 = freq - (bit1 << 16) - (bit2 << 8)
         sum = bit1 + bit2 + bit3 + 0x06
         hex_command = prefix + bytes([bit1]) + bytes([bit2]) + bytes([bit3]) + bytes([sum])
+        self._write(hex_command)
 
-        if freq.isnumeric() and -1 < int(freq) <= 20e3:
-            self._write(hex_command)
-        else:
-            raise Exception('Invalid repetition frequency. Must be between integer between 1 and 20 000(Hz).')
 
     @property
     def external_trigger(self):
